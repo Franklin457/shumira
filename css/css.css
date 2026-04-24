@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:ital,wght@0,500;1,900&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+    font-family:'Poppins',cursive;
+    color:azure;
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background-color:#000;
+    overflow:hidden;
+    gap:1.2rem;
+}
+
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0;}
+.star{
+    position:absolute;
+    border-radius:50%;
+    background:#fff;
+    animation:twinkle linear infinite;
+}
+@keyframes twinkle{
+    0%,100%{opacity:.1;transform:scale(1);}
+    50%{opacity:.9;transform:scale(1.4);}
+}
+
+.greetings{
+    position:relative;
+    z-index:1;
+    font-family:'Dancing Script',cursive;
+    font-size:clamp(3rem,15vw,8rem);
+    font-weight:700;
+    letter-spacing:.15em;
+}
+.greetings>span{
+    display:inline-block;
+    animation:glow 2.5s ease-in-out infinite;
+}
+@keyframes glow{
+    0%,100%{color:#fff;text-shadow:0 0 12px #ffd700,0 0 50px #ffd700,0 0 100px #ffd700;}
+    10%,90%{color:#444;text-shadow:none;}
+}
+.greetings>span:nth-child(1){animation-delay:0s;}
+.greetings>span:nth-child(2){animation-delay:.2s;}
+.greetings>span:nth-child(3){animation-delay:.4s;}
+.greetings>span:nth-child(4){animation-delay:.6s;}
+.greetings>span:nth-child(5){animation-delay:.8s;}
+.greetings>span:nth-child(6){animation-delay:1s;}
+
+.description{
+    position:relative;
+    z-index:1;
+    font-size:clamp(.9rem,3vw,1.4rem);
+    color:#ffd700;
+    text-align:center;
+    padding:0 1rem;
+    animation:fadeIn 2s 1s ease both;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.button{position:relative;z-index:1;}
+.button button{
+    background:linear-gradient(135deg,#ffd700,#ff9900);
+    border:none;
+    padding:.9rem 2.6rem;
+    font-family:'Dancing Script',cursive;
+    font-size:clamp(1.2rem,4vw,1.8rem);
+    color:#111;
+    cursor:pointer;
+    border-radius:50px;
+    box-shadow:0 0 20px rgba(255,200,0,.6);
+    transition:transform .2s,box-shadow .2s;
+    animation:fadeIn 2s 1.5s ease both;
+}
+.button button:hover{
+    transform:scale(1.07);
+    box-shadow:0 0 40px rgba(255,220,0,.9),0 0 80px rgba(255,180,0,.4);
+}
+
+@media(max-width:480px){
+    .greetings{letter-spacing:.08em;}
+}
